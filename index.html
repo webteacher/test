@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title> Верстка за макетом </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img class='logo' src='img/Logo.png' alt='Тут має бути картинка'>
+        <div class='menu'>
+            <a class='menu-elements' href='#'>ALL PRODUCTS</a>
+            <a class='menu-elements' href='#'>SOLUTIONS</a>
+            <a class='menu-elements' href='#'>ABOUT</a>
+            <a class='menu-elements' href='#'>SUPPORT</a>
+        </div>
+    </header>
+    <main>
+        <div class='container'>
+            <div class='block'>
+                <h1 class='main-text'>The new phones are here take a look.</h1>
+                <button class='button'>Explore</button>
+            </div>
+        </div>
+       
+        <h2 class='text'> Save on our most selled items. </h2>
+        <div class='container-cards'>
+            <div class='card'>
+                <img class='card-img' src='img/laptop.png' alt='Тут має бути картинка'>
+                <p class='text-card'>Laptop</p>
+                <p class='price-card'>$ 1,200.00 USD</p>
+            </div>
+            <div class='card'>
+                <img class='card-img' src='img/watch.png' alt='Тут має бути картинка'>
+                <p class='text-card'>Smart Watch</p>
+                <p class='price-card'>$ 199.00 USD</p>
+            </div>
+            <div class='card'>
+                <img class='card-img' src='img/headphones_wireless.jpg' alt='Тут має бути картинка'>
+                <p class='text-card'>Headphones</p>
+                <p class='price-card'>$ 149.00 USD</p>
+            </div>
+            <div class='card'>
+                <img class='card-img' src='img/Tablet_card_img_0_1699834112.png' alt='Тут має бути картинка'>
+                <p class='text-card'>Tablet</p>
+                <p class='price-card'>$ 610.00 USD</p>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <img class='logo-footer' src='img/Logo.png' alt='Тут має бути картинка'>
+        <div class='footer-menu'>
+            <ul class='vert-menu'>
+                <li><a class='footer-elements-first' href=''>Company</a></li>
+                <li><a class='footer-elements' href=''>About</a></li>
+                <li><a class='footer-elements' href=''>Support</a></li>
+            </ul>
+            <ul class='vert-menu'>
+                <li><a class='footer-elements-first' href=''>All products</a></li>
+                <li><a class='footer-elements' href=''>Phones</a></li>
+                <li><a class='footer-elements' href=''>Watch</a></li>
+                <li><a class='footer-elements' href=''>Tablet</a></li>
+                <li><a class='footer-elements' href=''>Laptops</a></li>
+                <li><a class='footer-elements' href=''>Headphones</a></li>
+            </ul>
+            <ul class='vert-menu'>
+                <li><a class='footer-elements-first' href=''>Follow Us</a></li>
+                <li><a class='footer-elements' href=''>Instagram</a></li>
+                <li><a class='footer-elements' href=''>Youtube</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+        </svg>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class='last-block'>
+                <h2 class='text-last-block'>Didn't find the right product? </h2>
+                <img class='img-last-block' src='img/devices.png' alt='Тут має бути картинка'>
+                <form class='elem-last-block'>
+                    <div class='content-input'>
+                        <input class='type-phone' type='tel' placeholder='Your phone number'>
+                        <input class='subm' type='submit' value='Call me'>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+    <script>
+
+        let phone_anime = anime({
+            targets: '.phone',
+            duration: 1000,
+            rotate: 360,
+            scale: [
+                { value: 1, duration: 400 },
+                { value: 1.4, duration: 800 },
+                { value: 1, duration: 400 },
+            ],
+            borderRadius: '5px',
+            easing: 'linear',
+            autoplay: false,
+            
+        })
+        anime({
+            targets: 'path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 1000,
+            delay: function (el, i) { return i * 250; },
+        });
+
+        document.querySelector('.phone').addEventListener('mouseenter', phone_anime.play)
+
+
+        document.querySelector('h1').addEventListener("click", function (e) {
+            e.target.classList.add('animate__animated', 'animate__backInRight');
+        })
+        // поява модального вікна при натисканні на телефон
+    </script>
+</body>
+
+</html>
